@@ -1,0 +1,6 @@
+.res-normal a,a .res-normal,a .res-multiple{color:#000}
+.res-severe,.res-severe a,.res-severe.detail-line{color:#e50d34;font-weight:bold}
+.res-high,.res-high a{color:#ff8013}
+.res-low,.res-low a{color:#0054e7}
+.res-abnormal,.res-abnormal a{color:#976823}
+.hidden {display:none}
