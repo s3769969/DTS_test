@@ -101,7 +101,9 @@ function createOption(ddl, text, value) {
         var opt = document.createElement('option');
         opt.value = value;
         opt.text = text;
-        ddl.options.add(opt);
+	if (!value.endsWith("FLAG")){
+		ddl.options.add(opt);
+	}
     }
 
 function createOptions(optionsArray, ddl) {
