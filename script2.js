@@ -274,7 +274,7 @@ function constructTable(selector) {
 				td.appendChild(document.createTextNode(list.REC.PAT[i][headings[j]].substring(6, 16)));				
 			}else{
 				td.appendChild(document.createTextNode(list.REC.PAT[i][headings[j]]));
-				td.sortValue = list.REC.PAT[i][headings[j]];
+				td.sortValue = list.REC.PAT[i][headings[j]].toString();
 			}
 			//mark className for HAZARDOUS to allow css styling
 			if(/HAZARDOUS/.test(headings[j])){
