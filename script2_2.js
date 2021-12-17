@@ -400,6 +400,7 @@ if(localStorage.colVisibility2 === undefined) {
 		/NAME/.test(colVisibility2[i]) || 
 		/D.O.B/.test(colVisibility2[i]) || 
 		/SEX/.test(colVisibility2[i]) || 
+		/BED_NO/.test(colVisibility2[i]) || 
 		/ADMITTING SPECIALTY/.test(colVisibility2[i]) ||	 
 		/ADMITTING CONSULTANT/.test(colVisibility2[i])){
 			colVisibility2[i] = true;
