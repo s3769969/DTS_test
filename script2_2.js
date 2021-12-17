@@ -1,55 +1,94 @@
 var presets = {
 "PRESETS": [{
-"VIEW_NAME": "ICU",
+"VIEW_NAME": "FULL",
 "UR": true,
-"ENCNTR_ID": false,
-"MRN": true,
-"NAME_FULL_FORMATTED": true,
-"BIRTH_DT_TM": true,
+"NAME": true,
+"D.O.B": true,
 "SEX": true,
-"RESULT": true,
-"RESULT_FLAG": false,
-"HAZARDOUS": true,
 "HOSPITAL_SITE": true,
 "WARD/AREA": true,
 "BED_NO": true,
-"ADMITTING_SPECIALTY": false,
-"ADMITTING_CONSULTANT": false,
-"PATIENT_DETAILS": true
+"ADMITTING SPECIALTY": true,
+"ADMITTING CONSULTANT": true,
+"PATIENT CLINICAL DETAILS": false,
+"ALLERGIES/ADR": true,
+"ISOLATION PRECAUTIONS": true,
+"ALERTS": true,
+"DOSING WEIGHT": true,
+"ENCOUNTER CLINICAL DETAILS": false,
+"Goals of care status": true,
+"Current Problem List": true,
+"Chief complaint": true,
+"Current referrals": true,
+"Barriers to Discharge": true,
+"EDD": true,
+"Confirmed Discharge": true,
+"Discharge Destination": true,
+"Diet": true,
+"Last known vitals": true,
+"Altered calling criteria": true,
+"Active medication Mx": true,
+"Active Investigation Orders": true,
 }, {
-"VIEW_NAME": "ED",
+"VIEW_NAME": "MINIMAL",
 "UR": true,
-"ENCNTR_ID": false,
-"MRN": true,
-"NAME_FULL_FORMATTED": true,
-"BIRTH_DT_TM": true,
+"NAME": true,
+"D.O.B": true,
 "SEX": true,
-"RESULT": true,
-"RESULT_FLAG": false,
-"HAZARDOUS": true,
-"HOSPITAL_SITE": true,
-"WARD/AREA": true,
+"HOSPITAL_SITE": false,
+"WARD/AREA": false,
 "BED_NO": true,
-"ADMITTING_SPECIALTY": true,
-"ADMITTING_CONSULTANT": true,
-"PATIENT_DETAILS": true
+"ADMITTING SPECIALTY": true,
+"ADMITTING CONSULTANT": true,
+"PATIENT CLINICAL DETAILS": true,
+"ALLERGIES/ADR": false,
+"ISOLATION PRECAUTIONS": false,
+"ALERTS": false,
+"DOSING WEIGHT": false,
+"ENCOUNTER CLINICAL DETAILS": true,
+"Goals of care status": false,
+"Current Problem List": false,
+"Chief complaint": false,
+"Current referrals": false,
+"Barriers to Discharge": false,
+"EDD": false,
+"Confirmed Discharge": false,
+"Discharge Destination": false,
+"Diet": false,
+"Last known vitals": false,
+"Altered calling criteria": false,
+"Active medication Mx": false,
+"Active Investigation Orders": false,
 }, {
-"VIEW_NAME": "ORTHOPAEDICS",
+"VIEW_NAME": "ALL",
 "UR": true,
-"ENCNTR_ID": false,
-"MRN": true,
-"NAME_FULL_FORMATTED": true,
-"BIRTH_DT_TM": true,
+"NAME": true,
+"D.O.B": true,
 "SEX": true,
-"RESULT": false,
-"RESULT_FLAG": false,
-"HAZARDOUS": false,
 "HOSPITAL_SITE": true,
 "WARD/AREA": true,
 "BED_NO": true,
-"ADMITTING_SPECIALTY": true,
-"ADMITTING_CONSULTANT": true,
-"PATIENT_DETAILS": true
+"ADMITTING SPECIALTY": true,
+"ADMITTING CONSULTANT": true,
+"PATIENT CLINICAL DETAILS": true,
+"ALLERGIES/ADR": true,
+"ISOLATION PRECAUTIONS": true,
+"ALERTS": true,
+"DOSING WEIGHT": true,
+"ENCOUNTER CLINICAL DETAILS": true,
+"Goals of care status": true,
+"Current Problem List": true,
+"Chief complaint": true,
+"Current referrals": true,
+"Barriers to Discharge": true,
+"EDD": true,
+"Confirmed Discharge": true,
+"Discharge Destination": true,
+"Diet": true,
+"Last known vitals": true,
+"Altered calling criteria": true,
+"Active medication Mx": true,
+"Active Investigation Orders": true,
 }]
 }
 
@@ -57,164 +96,294 @@ var list = {
 "REC": {
 "PAT": [{
 "UR": 733924.000000,
-"ENCNTR_ID": 0.000000,
-"MRN": "Active",
-"NAME_FULL_FORMATTED": "Git, Hub ",
-"BIRTH_DT_TM": "\/Date(1990-01-01T00:00:00.000+00:00)\/",
+"NAME": "Git, Hub ",
+"D.O.B": "\/Date(1990-01-01T00:00:00.000+00:00)\/",
 "SEX": "F",
-"RESULT": "1",
-"RESULT_FLAG": "res-low",
-"HAZARDOUS": "true",
 "HOSPITAL_SITE": "Clayton",
 "WARD/AREA": "ICU",
 "BED_NO": "6",
-"ADMITTING_SPECIALTY": "General Medicine",
-"ADMITTING_CONSULTANT": "Doogie Howser",
-"PATIENT_DETAILS": "Click to expand"
+"ADMITTING SPECIALTY": "General Medicine",
+"ADMITTING CONSULTANT": "Doogie Howser",
+"PATIENT CLINICAL DETAILS": "Click to expand",
+"ALLERGIES/ADR": "Penecillin",
+"ISOLATION PRECAUTIONS": "none",
+"ALERTS": "none",
+"DOSING WEIGHT": "X kg",
+"ENCOUNTER CLINICAL DETAILS": "Click to expand",
+"Goals of care status": "Pending",
+"Current Problem List": "[Problem A, Problem B Problem C]",
+"Chief complaint": "Chief compliant summary",
+"Current referrals": "[Referral A:Status A, Referral B:Status B, Referral C:Status C]",
+"Barriers to Discharge": "Text summary",
+"EDD": "To be confirmed",
+"Confirmed Discharge": "TBC",
+"Discharge Destination": "TBC",
+"Diet": "Normal",
+"Last known vitals": "[BP:Value A, HR:Value B, Temp:Value C]",
+"Altered calling criteria": "None",
+"Active medication Mx": "Link to source/image",
+"Active Investigation Orders": '[Pathology:"path text summary", Radiology:"rad text summary", Other:"other text summary.etc."]'
 }, {
 "UR": 2607950.000000,
-"ENCNTR_ID": 0.000000,
-"MRN": "Active",
-"NAME_FULL_FORMATTED": "John, Luke ",
-"BIRTH_DT_TM": "\/Date(1991-01-01T00:00:00.000+00:00)\/",
+"NAME": "John, Luke ",
+"D.O.B": "\/Date(1991-01-01T00:00:00.000+00:00)\/",
 "SEX": "M",
-"RESULT": "10",
-"RESULT_FLAG": "res-normal",
-"HAZARDOUS": "false",
 "HOSPITAL_SITE": "Dandenong",
 "WARD/AREA": "ED",
 "BED_NO": "6",
-"ADMITTING_SPECIALTY": "General Medicine",
-"ADMITTING_CONSULTANT": "Doogie Howser",
-"PATIENT_DETAILS": "Click to expand"
+"ADMITTING SPECIALTY": "General Medicine",
+"ADMITTING CONSULTANT": "Doogie Howser",
+"PATIENT CLINICAL DETAILS": "Click to expand",
+"ALLERGIES/ADR": "Penecillin",
+"ISOLATION PRECAUTIONS": "none",
+"ALERTS": "none",
+"DOSING WEIGHT": "X kg",
+"ENCOUNTER CLINICAL DETAILS": "Click to expand",
+"Goals of care status": "Pending",
+"Current Problem List": "[Problem A, Problem B Problem C]",
+"Chief complaint": "Chief compliant summary",
+"Current referrals": "[Referral A:Status A, Referral B:Status B, Referral C:Status C]",
+"Barriers to Discharge": "Text summary",
+"EDD": "To be confirmed",
+"Confirmed Discharge": "TBC",
+"Discharge Destination": "TBC",
+"Diet": "Normal",
+"Last known vitals": "[BP:Value A, HR:Value B, Temp:Value C]",
+"Altered calling criteria": "None",
+"Active medication Mx": "Link to source/image",
+"Active Investigation Orders": '[Pathology:"path text summary", Radiology:"rad text summary", Other:"other text summary.etc."]'
 }, {
 "UR": 2601764.000000,
-"ENCNTR_ID": 0.000000,
-"MRN": "Active",
-"NAME_FULL_FORMATTED": "Pierce, Pierce ",
-"BIRTH_DT_TM": "\/Date(1992-01-01T00:00:00.000+00:00)\/",
+"NAME": "Pierce, Pierce ",
+"D.O.B": "\/Date(1992-01-01T00:00:00.000+00:00)\/",
 "SEX": "M",
-"RESULT": "10",
-"RESULT_FLAG": "res-normal",
-"HAZARDOUS": "false",
 "HOSPITAL_SITE": "Clayton",
 "WARD/AREA": "ED",
 "BED_NO": "6",
-"ADMITTING_SPECIALTY": "General Medicine",
-"ADMITTING_CONSULTANT": "Doogie Howser",
-"PATIENT_DETAILS": "Click to expand"
+"ADMITTING SPECIALTY": "General Medicine",
+"ADMITTING CONSULTANT": "Doogie Howser",
+"PATIENT CLINICAL DETAILS": "Click to expand",
+"ALLERGIES/ADR": "Penecillin",
+"ISOLATION PRECAUTIONS": "none",
+"ALERTS": "none",
+"DOSING WEIGHT": "X kg",
+"ENCOUNTER CLINICAL DETAILS": "Click to expand",
+"Goals of care status": "Pending",
+"Current Problem List": "[Problem A, Problem B Problem C]",
+"Chief complaint": "Chief compliant summary",
+"Current referrals": "[Referral A:Status A, Referral B:Status B, Referral C:Status C]",
+"Barriers to Discharge": "Text summary",
+"EDD": "To be confirmed",
+"Confirmed Discharge": "TBC",
+"Discharge Destination": "TBC",
+"Diet": "Normal",
+"Last known vitals": "[BP:Value A, HR:Value B, Temp:Value C]",
+"Altered calling criteria": "None",
+"Active medication Mx": "Link to source/image",
+"Active Investigation Orders": '[Pathology:"path text summary", Radiology:"rad text summary", Other:"other text summary.etc."]'
 }, {
 "UR": 2605750.000000,
-"ENCNTR_ID": 0.000000,
-"MRN": "Active",
-"NAME_FULL_FORMATTED": "Hello, World ",
-"BIRTH_DT_TM": "\/Date(1993-01-01T00:00:00.000+00:00)\/",
+"NAME": "Hello, World ",
+"D.O.B": "\/Date(1993-01-01T00:00:00.000+00:00)\/",
 "SEX": "F",
-"RESULT": "10",
-"RESULT_FLAG": "res-normal",
-"HAZARDOUS": "false",
 "HOSPITAL_SITE": "Moorabbin",
 "WARD/AREA": "ED",
 "BED_NO": "6",
-"ADMITTING_SPECIALTY": "General Medicine",
-"ADMITTING_CONSULTANT": "Doogie Howser",
-"PATIENT_DETAILS": "Click to expand"
+"ADMITTING SPECIALTY": "General Medicine",
+"ADMITTING CONSULTANT": "Doogie Howser",
+"PATIENT CLINICAL DETAILS": "Click to expand",
+"ALLERGIES/ADR": "Penecillin",
+"ISOLATION PRECAUTIONS": "none",
+"ALERTS": "none",
+"DOSING WEIGHT": "X kg",
+"ENCOUNTER CLINICAL DETAILS": "Click to expand",
+"Goals of care status": "Pending",
+"Current Problem List": "[Problem A, Problem B Problem C]",
+"Chief complaint": "Chief compliant summary",
+"Current referrals": "[Referral A:Status A, Referral B:Status B, Referral C:Status C]",
+"Barriers to Discharge": "Text summary",
+"EDD": "To be confirmed",
+"Confirmed Discharge": "TBC",
+"Discharge Destination": "TBC",
+"Diet": "Normal",
+"Last known vitals": "[BP:Value A, HR:Value B, Temp:Value C]",
+"Altered calling criteria": "None",
+"Active medication Mx": "Link to source/image",
+"Active Investigation Orders": '[Pathology:"path text summary", Radiology:"rad text summary", Other:"other text summary.etc."]'
 }, {
 "UR": 2605755.000000,
-"ENCNTR_ID": 0.000000,
-"MRN": "Active",
-"NAME_FULL_FORMATTED": "Saint, Vincent ",
-"BIRTH_DT_TM": "\/Date(1994-01-01T00:00:00.000+00:00)\/",
+"NAME": "Saint, Vincent ",
+"D.O.B": "\/Date(1994-01-01T00:00:00.000+00:00)\/",
 "SEX": "M",
-"RESULT": "10",
-"RESULT_FLAG": "res-normal",
-"HAZARDOUS": "false",
 "HOSPITAL_SITE": "Clayton",
 "WARD/AREA": "ED",
 "BED_NO": "6",
-"ADMITTING_SPECIALTY": "General Medicine",
-"ADMITTING_CONSULTANT": "Doogie Howser",
-"PATIENT_DETAILS": "Click to expand"
+"ADMITTING SPECIALTY": "General Medicine",
+"ADMITTING CONSULTANT": "Doogie Howser",
+"PATIENT CLINICAL DETAILS": "Click to expand",
+"ALLERGIES/ADR": "Penecillin",
+"ISOLATION PRECAUTIONS": "none",
+"ALERTS": "none",
+"DOSING WEIGHT": "X kg",
+"ENCOUNTER CLINICAL DETAILS": "Click to expand",
+"Goals of care status": "Pending",
+"Current Problem List": "[Problem A, Problem B Problem C]",
+"Chief complaint": "Chief compliant summary",
+"Current referrals": "[Referral A:Status A, Referral B:Status B, Referral C:Status C]",
+"Barriers to Discharge": "Text summary",
+"EDD": "To be confirmed",
+"Confirmed Discharge": "TBC",
+"Discharge Destination": "TBC",
+"Diet": "Normal",
+"Last known vitals": "[BP:Value A, HR:Value B, Temp:Value C]",
+"Altered calling criteria": "None",
+"Active medication Mx": "Link to source/image",
+"Active Investigation Orders": '[Pathology:"path text summary", Radiology:"rad text summary", Other:"other text summary.etc."]'
 }, {
 "UR": 2677951.000000,
-"ENCNTR_ID": 0.000000,
-"MRN": "Active",
-"NAME_FULL_FORMATTED": "Jeffrey, Jeff ",
-"BIRTH_DT_TM": "\/Date(1995-01-01T00:00:00.000+00:00)\/",
+"NAME": "Jeffrey, Jeff ",
+"D.O.B": "\/Date(1995-01-01T00:00:00.000+00:00)\/",
 "SEX": "M",
-"RESULT": "10",
-"RESULT_FLAG": "res-normal",
-"HAZARDOUS": "false",
 "HOSPITAL_SITE": "Clayton",
 "WARD/AREA": "ED",
 "BED_NO": "6",
-"ADMITTING_SPECIALTY": "General Medicine",
-"ADMITTING_CONSULTANT": "Doogie Howser",
-"PATIENT_DETAILS": "Click to expand"
+"ADMITTING SPECIALTY": "General Medicine",
+"ADMITTING CONSULTANT": "Doogie Howser",
+"PATIENT CLINICAL DETAILS": "Click to expand",
+"ALLERGIES/ADR": "Penecillin",
+"ISOLATION PRECAUTIONS": "none",
+"ALERTS": "none",
+"DOSING WEIGHT": "X kg",
+"ENCOUNTER CLINICAL DETAILS": "Click to expand",
+"Goals of care status": "Pending",
+"Current Problem List": "[Problem A, Problem B Problem C]",
+"Chief complaint": "Chief compliant summary",
+"Current referrals": "[Referral A:Status A, Referral B:Status B, Referral C:Status C]",
+"Barriers to Discharge": "Text summary",
+"EDD": "To be confirmed",
+"Confirmed Discharge": "TBC",
+"Discharge Destination": "TBC",
+"Diet": "Normal",
+"Last known vitals": "[BP:Value A, HR:Value B, Temp:Value C]",
+"Altered calling criteria": "None",
+"Active medication Mx": "Link to source/image",
+"Active Investigation Orders": '[Pathology:"path text summary", Radiology:"rad text summary", Other:"other text summary.etc."]'
 }, {
 "UR": 2631972.000000,
-"ENCNTR_ID": 1.000000,
-"MRN": "Active",
-"NAME_FULL_FORMATTED": "Han, Solo ",
-"BIRTH_DT_TM": "\/Date(1996-01-01T00:00:00.000+00:00)\/",
+"NAME": "Han, Solo ",
+"D.O.B": "\/Date(1996-01-01T00:00:00.000+00:00)\/",
 "SEX": "M",
-"RESULT": "1000",
-"RESULT_FLAG": "res-severe",
-"HAZARDOUS": "true",
 "HOSPITAL_SITE": "Clayton",
 "WARD/AREA": "ICU",
 "BED_NO": "6",
-"ADMITTING_SPECIALTY": "General Medicine",
-"ADMITTING_CONSULTANT": "Doogie Howser",
-"PATIENT_DETAILS": "Click to expand"
+"ADMITTING SPECIALTY": "General Medicine",
+"ADMITTING CONSULTANT": "Doogie Howser",
+"PATIENT CLINICAL DETAILS": "Click to expand",
+"ALLERGIES/ADR": "Penecillin",
+"ISOLATION PRECAUTIONS": "none",
+"ALERTS": "none",
+"DOSING WEIGHT": "X kg",
+"ENCOUNTER CLINICAL DETAILS": "Click to expand",
+"Goals of care status": "Pending",
+"Current Problem List": "[Problem A, Problem B Problem C]",
+"Chief complaint": "Chief compliant summary",
+"Current referrals": "[Referral A:Status A, Referral B:Status B, Referral C:Status C]",
+"Barriers to Discharge": "Text summary",
+"EDD": "To be confirmed",
+"Confirmed Discharge": "TBC",
+"Discharge Destination": "TBC",
+"Diet": "Normal",
+"Last known vitals": "[BP:Value A, HR:Value B, Temp:Value C]",
+"Altered calling criteria": "None",
+"Active medication Mx": "Link to source/image",
+"Active Investigation Orders": '[Pathology:"path text summary", Radiology:"rad text summary", Other:"other text summary.etc."]'
 }, {
 "UR": 2637956.000000,
-"ENCNTR_ID": 2.000000,
-"MRN": "Active",
-"NAME_FULL_FORMATTED": "Armstrong, Niel ",
-"BIRTH_DT_TM": "\/Date(1997-01-01T00:00:00.000+00:00)\/",
+"NAME": "Armstrong, Niel ",
+"D.O.B": "\/Date(1997-01-01T00:00:00.000+00:00)\/",
 "SEX": "M",
-"RESULT": "100",
-"RESULT_FLAG": "res-high",
-"HAZARDOUS": "false",
 "HOSPITAL_SITE": "Clayton",
 "WARD/AREA": "ICU",
 "BED_NO": "6",
-"ADMITTING_SPECIALTY": "General Medicine",
-"ADMITTING_CONSULTANT": "Doogie Howser",
-"PATIENT_DETAILS": "Click to expand"
+"ADMITTING SPECIALTY": "General Medicine",
+"ADMITTING CONSULTANT": "Doogie Howser",
+"PATIENT CLINICAL DETAILS": "Click to expand",
+"ALLERGIES/ADR": "Penecillin",
+"ISOLATION PRECAUTIONS": "none",
+"ALERTS": "none",
+"DOSING WEIGHT": "X kg",
+"ENCOUNTER CLINICAL DETAILS": "Click to expand",
+"Goals of care status": "Pending",
+"Current Problem List": "[Problem A, Problem B Problem C]",
+"Chief complaint": "Chief compliant summary",
+"Current referrals": "[Referral A:Status A, Referral B:Status B, Referral C:Status C]",
+"Barriers to Discharge": "Text summary",
+"EDD": "To be confirmed",
+"Confirmed Discharge": "TBC",
+"Discharge Destination": "TBC",
+"Diet": "Normal",
+"Last known vitals": "[BP:Value A, HR:Value B, Temp:Value C]",
+"Altered calling criteria": "None",
+"Active medication Mx": "Link to source/image",
+"Active Investigation Orders": '[Pathology:"path text summary", Radiology:"rad text summary", Other:"other text summary.etc."]'
 }, {
 "UR": 873923.000000,
-"ENCNTR_ID": 0.000000,
-"MRN": "Active",
-"NAME_FULL_FORMATTED": "Ice, Tea ",
-"BIRTH_DT_TM": "\/Date(1998-01-01T00:00:00.000+00:00)\/",
+"NAME": "Ice, Tea ",
+"D.O.B": "\/Date(1998-01-01T00:00:00.000+00:00)\/",
 "SEX": "M",
-"RESULT": "100",
-"RESULT_FLAG": "res-high",
-"HAZARDOUS": "false",
 "HOSPITAL_SITE": "Clayton",
 "WARD/AREA": "ID",
 "BED_NO": "6",
-"ADMITTING_SPECIALTY": "General Medicine",
-"ADMITTING_CONSULTANT": "Doogie Howser",
-"PATIENT_DETAILS": "Click to expand"
+"ADMITTING SPECIALTY": "General Medicine",
+"ADMITTING CONSULTANT": "Doogie Howser",
+"PATIENT CLINICAL DETAILS": "Click to expand",
+"ALLERGIES/ADR": "Penecillin",
+"ISOLATION PRECAUTIONS": "none",
+"ALERTS": "none",
+"DOSING WEIGHT": "X kg",
+"ENCOUNTER CLINICAL DETAILS": "Click to expand",
+"Goals of care status": "Pending",
+"Current Problem List": "[Problem A, Problem B Problem C]",
+"Chief complaint": "Chief compliant summary",
+"Current referrals": "[Referral A:Status A, Referral B:Status B, Referral C:Status C]",
+"Barriers to Discharge": "Text summary",
+"EDD": "To be confirmed",
+"Confirmed Discharge": "TBC",
+"Discharge Destination": "TBC",
+"Diet": "Normal",
+"Last known vitals": "[BP:Value A, HR:Value B, Temp:Value C]",
+"Altered calling criteria": "None",
+"Active medication Mx": "Link to source/image",
+"Active Investigation Orders": '[Pathology:"path text summary", Radiology:"rad text summary", Other:"other text summary.etc."]'
 }, {
 "UR": 893723.000000,
-"ENCNTR_ID": 0.000000,
-"MRN": "Active",
-"NAME_FULL_FORMATTED": "Chapelle, Dave ",
-"BIRTH_DT_TM": "\/Date(1999-01-01T00:00:00.000+00:00)\/",
+"NAME": "Chapelle, Dave ",
+"D.O.B": "\/Date(1999-01-01T00:00:00.000+00:00)\/",
 "SEX": "M",
-"RESULT": "1",
-"RESULT_FLAG": "res-low",
-"HAZARDOUS": "false",
 "HOSPITAL_SITE": "Clayton",
 "WARD/AREA": "AMU",
 "BED_NO": "6",
-"ADMITTING_SPECIALTY": "General Medicine",
-"ADMITTING_CONSULTANT": "Doogie Howser",
-"PATIENT_DETAILS": "Click to expand"	
+"ADMITTING SPECIALTY": "General Medicine",
+"ADMITTING CONSULTANT": "Doogie Howser",
+"PATIENT CLINICAL DETAILS": "Click to expand",
+"ALLERGIES/ADR": "Penecillin",
+"ISOLATION PRECAUTIONS": "none",
+"ALERTS": "none",
+"DOSING WEIGHT": "X kg",
+"ENCOUNTER CLINICAL DETAILS": "Click to expand",
+"Goals of care status": "Pending",
+"Current Problem List": "[Problem A, Problem B Problem C]",
+"Chief complaint": "Chief compliant summary",
+"Current referrals": "[Referral A:Status A, Referral B:Status B, Referral C:Status C]",
+"Barriers to Discharge": "Text summary",
+"EDD": "To be confirmed",
+"Confirmed Discharge": "TBC",
+"Discharge Destination": "TBC",
+"Diet": "Normal",
+"Last known vitals": "[BP:Value A, HR:Value B, Temp:Value C]",
+"Altered calling criteria": "None",
+"Active medication Mx": "Link to source/image",
+"Active Investigation Orders": '[Pathology:"path text summary", Radiology:"rad text summary", Other:"other text summary.etc."]'
 }]
 }};
 
@@ -226,10 +395,16 @@ var list = {
 var colVisibility = Object.keys(list.REC.PAT[0]);
 if(localStorage.colVisibility === undefined) {
 	for (i = 0; i < colVisibility.length; i++){
-		if (colVisibility[i].endsWith("FLAG")){
-			colVisibility[i] = false;
-		}else{
+		if (/DETAILS/.test(colVisibility[i]) || 
+		/UR/.test(colVisibility[i]) || 
+		/NAME/.test(colVisibility[i]) || 
+		/D.O.B/.test(colVisibility[i]) || 
+		/SEX/.test(colVisibility[i]) || 
+		/ADMITTING SPECIALTY/.test(colVisibility[i]) ||	 
+		/ADMITTING CONSULTANT/.test(colVisibility[i])){
 			colVisibility[i] = true;
+		}else{
+			colVisibility[i] = false;
 		}
 	}
 	localStorage.setItem("colVisibility", JSON.stringify(colVisibility));
@@ -295,7 +470,9 @@ function constructDropDown(selector) {
 		case "cols":
 			headings = Object.keys(list.REC.PAT[0]);
 			options = document.getElementById("filterDropDown");
-			options.innerHTML = "";
+			if(options){
+				options.innerHTML = "";
+			}
 			//console.log("cols:" + headings);
 			createOptions(headings, options);
 			break;
@@ -398,7 +575,7 @@ function constructTable(selector) {
 	const headings = Object.keys(list.REC.PAT[0]);
 	
 	//fill table cells
-	let dob = /BIRTH_DT_TM/;
+	let dob = /D.O.B/;
 	let year, month, day, dateString, displayFormat;
 	for (let i = 0; i < list.REC.PAT.length; i++) {
 		const tr = tbl.insertRow();
@@ -433,14 +610,28 @@ function constructTable(selector) {
 					td.className = list.REC.PAT[i][headings[j+1]];
 				}
 			}
-			//add link for patient details
-			if(/PATIENT_DETAILS/.test(headings[j])){
+			//add link for patient clinical details
+			if(/PATIENT CLINICAL DETAILS/.test(headings[j])){
 				td.innerHTML = "";
 				var a = document.createElement('a');
 				var linkText = document.createTextNode("Click for patient details");
 				a.appendChild(linkText);
-				a.title = "Patient details link";
-				a.href = "./details.html?" + i;
+				a.title = "Patient clinical details link";
+				a.href = "./patientClinicalDetails.html?" + i;
+				td.appendChild(a);
+				function fu() {
+					var opened = window.open("");
+				    opened.document.write("Your HTML here");
+				}
+			}
+			//add link for encounter clinical details
+			if(/ENCOUNTER CLINICAL DETAILS/.test(headings[j])){
+				td.innerHTML = "";
+				var a = document.createElement('a');
+				var linkText = document.createTextNode("Click for patient details");
+				a.appendChild(linkText);
+				a.title = "Encounter clinical details link";
+				a.href = "./encounterClinicalDetails.html?" + i;
 				td.appendChild(a);
 				function fu() {
 					var opened = window.open("");
@@ -708,7 +899,7 @@ function constructDetailsTable(selector) {
 	const headings = Object.keys(list.REC.PAT[0]);
 	
 	//fill table cells
-	let dob = /BIRTH_DT_TM/;
+	let dob = /D.O.B/;
 	let year, month, day, dateString;
 		var queryString = location.search.substring(1);
 		//alert(queryString);
@@ -757,8 +948,164 @@ function constructDetailsTable(selector) {
 			}
 	}
 	document.getElementById("main").appendChild(tbl);
-	constructDropDown("cols");
-	constructDropDown("hospitals");
-	constructDropDown("ward/areas");
 }
 
+
+//construct Patient Clinical details table object using json object for data
+function constructPCDetailsTable(selector) {
+	
+	//console.log("creating table");
+	//console.log(list.REC.PAT[0]);
+	document.getElementById("table").innerHTML = "";
+	//style table element
+    var tbl = document.getElementById("table");
+	tbl.style.width = '150px';
+	tbl.style.border = '1px solid black';
+	const headings = Object.keys(list.REC.PAT[0]);
+	
+	//fill table cells
+	let dob = /D.O.B/;
+	let year, month, day, dateString;
+		var queryString = location.search.substring(1);
+		//alert(queryString);
+		var i = queryString;
+		for (let j = 0; j < headings.length; j++) {
+			const tr = tbl.insertRow();
+			td = tr.insertCell();
+			td.innerHTML = headings[j];
+			td.style.fontWeight = 'bold';
+			//hide unwanted headings
+			if(!/ALLERGIES\/ADR/.test(headings[j]) && 
+			!/ISOLATION PRECAUTIONS/.test(headings[j]) && 
+			!/ALERTS/.test(headings[j]) && 
+			!/DOSING WEIGHT/.test(headings[j])){
+				td.style.display = "none"
+			}
+			td = tr.insertCell();
+			//change sort and display values for DOB field
+			if(dob.test(headings[j])){
+				year = list.REC.PAT[i][headings[j]].substring(6, 10);
+				month = list.REC.PAT[i][headings[j]].substring(11, 13);
+				day = list.REC.PAT[i][headings[j]].substring(14, 16);
+				dateString = year + month + day;
+				td.sortValue = dateString;
+				td.appendChild(document.createTextNode(list.REC.PAT[i][headings[j]].substring(6, 16)));				
+			}else{
+				td.appendChild(document.createTextNode(list.REC.PAT[i][headings[j]]));
+				td.sortValue = list.REC.PAT[i][headings[j]].toString();
+			}
+			//mark className for HAZARDOUS to allow css styling
+			if(/HAZARDOUS/.test(headings[j])){
+				if(/true/.test(list.REC.PAT[i][headings[j]])){					
+					td.className = "hazardTrue";
+					//td.innerHTML += '<img align="center" width="100%" height="100%" src="http://dummyimage.com/68x68/000/fff" />';
+				}else{
+					td.className = "hazardFalse";
+				}
+			}
+			td.style.border = '1px solid black';
+			//if next heading is a FLAG for conditional formatting use value as a className
+			if(j+1 < headings.length){
+				if(headings[j+1].endsWith("FLAG")){
+					td.className = list.REC.PAT[i][headings[j+1]];
+				}
+			}
+			//hide unwanted details
+			if(!/ALLERGIES\/ADR/.test(headings[j]) && 
+			!/ISOLATION PRECAUTIONS/.test(headings[j]) && 
+			!/ALERTS/.test(headings[j]) && 
+			!/DOSING WEIGHT/.test(headings[j])){
+				td.style.display = "none"
+			}
+	}
+	document.getElementById("main").appendChild(tbl);
+}
+
+
+//construct Encounter Clinical Details table object using json object for data
+function constructECDetailsTable(selector) {
+	
+	//console.log("creating table");
+	//console.log(list.REC.PAT[0]);
+	document.getElementById("table").innerHTML = "";
+	//style table element
+    var tbl = document.getElementById("table");
+	tbl.style.width = '150px';
+	tbl.style.border = '1px solid black';
+	const headings = Object.keys(list.REC.PAT[0]);
+	
+	//fill table cells
+	let dob = /D.O.B/;
+	let year, month, day, dateString;
+		var queryString = location.search.substring(1);
+		//alert(queryString);
+		var i = queryString;
+		for (let j = 0; j < headings.length; j++) {
+			const tr = tbl.insertRow();
+			td = tr.insertCell();
+			td.innerHTML = headings[j];
+			td.style.fontWeight = 'bold';
+			//hide unwanted headings
+			if(!/Goals of care status/.test(headings[j]) && 
+			!/Current Problem List/.test(headings[j]) && 
+			!/Chief complaint/.test(headings[j]) && 
+			!/Current referrals/.test(headings[j]) && 
+			!/Barriers to Discharge/.test(headings[j]) && 
+			!/EDD/.test(headings[j]) && 
+			!/Confirmed Discharge/.test(headings[j]) && 
+			!/Discharge Destination/.test(headings[j]) && 
+			!/Diet/.test(headings[j]) && 
+			!/Last known vitals/.test(headings[j]) && 
+			!/Altered calling criteria/.test(headings[j]) && 
+			!/Active medication Mx/.test(headings[j]) && 
+			!/Active Investigation Orders/.test(headings[j])){
+				td.style.display = "none"
+			}
+			td = tr.insertCell();
+			//change sort and display values for DOB field
+			if(dob.test(headings[j])){
+				year = list.REC.PAT[i][headings[j]].substring(6, 10);
+				month = list.REC.PAT[i][headings[j]].substring(11, 13);
+				day = list.REC.PAT[i][headings[j]].substring(14, 16);
+				dateString = year + month + day;
+				td.sortValue = dateString;
+				td.appendChild(document.createTextNode(list.REC.PAT[i][headings[j]].substring(6, 16)));				
+			}else{
+				td.appendChild(document.createTextNode(list.REC.PAT[i][headings[j]]));
+				td.sortValue = list.REC.PAT[i][headings[j]].toString();
+			}
+			//mark className for HAZARDOUS to allow css styling
+			if(/HAZARDOUS/.test(headings[j])){
+				if(/true/.test(list.REC.PAT[i][headings[j]])){					
+					td.className = "hazardTrue";
+					//td.innerHTML += '<img align="center" width="100%" height="100%" src="http://dummyimage.com/68x68/000/fff" />';
+				}else{
+					td.className = "hazardFalse";
+				}
+			}
+			td.style.border = '1px solid black';
+			//if next heading is a FLAG for conditional formatting use value as a className
+			if(j+1 < headings.length){
+				if(headings[j+1].endsWith("FLAG")){
+					td.className = list.REC.PAT[i][headings[j+1]];
+				}
+			}
+			//hide unwanted details
+			if(!/Goals of care status/.test(headings[j]) && 
+			!/Current Problem List/.test(headings[j]) && 
+			!/Chief complaint/.test(headings[j]) && 
+			!/Current referrals/.test(headings[j]) && 
+			!/Barriers to Discharge/.test(headings[j]) && 
+			!/EDD/.test(headings[j]) && 
+			!/Confirmed Discharge/.test(headings[j]) && 
+			!/Discharge Destination/.test(headings[j]) && 
+			!/Diet/.test(headings[j]) && 
+			!/Last known vitals/.test(headings[j]) && 
+			!/Altered calling criteria/.test(headings[j]) && 
+			!/Active medication Mx/.test(headings[j]) && 
+			!/Active Investigation Orders/.test(headings[j])){
+				td.style.display = "none"
+			}
+	}
+	document.getElementById("main").appendChild(tbl);
+}
