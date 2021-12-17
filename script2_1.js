@@ -1103,3 +1103,21 @@ function constructECDetailsTable(selector) {
 	}
 	document.getElementById("main").appendChild(tbl);
 }
+
+//add name for details pages
+function getName(){
+	const headings = Object.keys(list.REC.PAT[0]);
+	var ur, name;
+	var queryString = location.search.substring(1);
+	var i = queryString;
+	for (let j = 0; j < headings.length; j++) {
+			//get details
+			if(/UR/.test(headings[j])){
+				ur = list.REC.PAT[i][headings[j]];
+			}
+			if(/NAME/.test(headings[j])){
+				name = list.REC.PAT[i][headings[j]];
+			}
+		document.getElementById("name_ph").innerHTML = "UR: " + ur + "<br />" + "Name: " + name;
+	}
+}
