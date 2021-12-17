@@ -392,27 +392,27 @@ var list = {
 //import list from 'http://127.0.0.1:5500/script.js';
 
 //manage column visibility
-var colVisibility = Object.keys(list.REC.PAT[0]);
-if(localStorage.colVisibility === undefined) {
-	for (i = 0; i < colVisibility.length; i++){
-		if (/DETAILS/.test(colVisibility[i]) || 
-		/UR/.test(colVisibility[i]) || 
-		/NAME/.test(colVisibility[i]) || 
-		/D.O.B/.test(colVisibility[i]) || 
-		/SEX/.test(colVisibility[i]) || 
-		/ADMITTING SPECIALTY/.test(colVisibility[i]) ||	 
-		/ADMITTING CONSULTANT/.test(colVisibility[i])){
-			colVisibility[i] = true;
+var colVisibility2 = Object.keys(list.REC.PAT[0]);
+if(localStorage.colVisibility2 === undefined) {
+	for (i = 0; i < colVisibility2.length; i++){
+		if (/DETAILS/.test(colVisibility2[i]) || 
+		/UR/.test(colVisibility2[i]) || 
+		/NAME/.test(colVisibility2[i]) || 
+		/D.O.B/.test(colVisibility2[i]) || 
+		/SEX/.test(colVisibility2[i]) || 
+		/ADMITTING SPECIALTY/.test(colVisibility2[i]) ||	 
+		/ADMITTING CONSULTANT/.test(colVisibility2[i])){
+			colVisibility2[i] = true;
 		}else{
-			colVisibility[i] = false;
+			colVisibility2[i] = false;
 		}
 	}
-	localStorage.setItem("colVisibility", JSON.stringify(colVisibility));
+	localStorage.setItem("colVisibility2", JSON.stringify(colVisibility2));
 }else{
-	colVisibility = JSON.parse(localStorage.getItem("colVisibility"));
+	colVisibility2 = JSON.parse(localStorage.getItem("colVisibility2"));
 }
-console.log("initial:", JSON.parse(localStorage.getItem("colVisibility")));
-//console.log("colVisibility:" + colVisibility);
+console.log("initial:", JSON.parse(localStorage.getItem("colVisibility2")));
+//console.log("colVisibility2:" + colVisibility2);
 
 
 
@@ -657,9 +657,9 @@ function constructTable(selector) {
 	var tableRows = document.getElementById("table").getElementsByTagName("tr");
 	for (var i = 0; i < tableRows.length; i++) {
 		for (var j = 0; j < tableRows[i].cells.length; j++) {
-			//console.log("checking", localStorage.getItem("colVisibility"), localStorage.getItem("colVisibility"), tbl.rows[i].cells[j]);
-			if (!JSON.parse(localStorage.getItem("colVisibility"))[j]){
-				//console.log(j, JSON.parse(localStorage.getItem("colVisibility"))[j]);
+			//console.log("checking", localStorage.getItem("colVisibility2"), localStorage.getItem("colVisibility2"), tbl.rows[i].cells[j]);
+			if (!JSON.parse(localStorage.getItem("colVisibility2"))[j]){
+				//console.log(j, JSON.parse(localStorage.getItem("colVisibility2"))[j]);
 				tbl.rows[i].cells[j].style.display = "none";
 			}
 		}
@@ -686,7 +686,7 @@ function loadSettings(){
 		checkBox.name = headings[i];
 		checkBox.value = headings[i];
 		checkBox.id = i + ". " + headings[i];
-		if(JSON.parse(localStorage.getItem("colVisibility"))[i]){	
+		if(JSON.parse(localStorage.getItem("colVisibility2"))[i]){	
 			checkBox.defaultChecked = true;
 		}
 		label.htmlFor = checkBox.id;
@@ -714,11 +714,11 @@ function updateSettings(settings){
 	//console.log(event);
 	//alert(event.target);
 	for (i = 0; i < Object.keys(list.REC.PAT[0]).length; i++){
-		colVisibility[i] = event.target[i].checked;
+		colVisibility2[i] = event.target[i].checked;
 	}
-	localStorage.setItem("colVisibility", JSON.stringify(colVisibility));
-	//console.log("colVisibility:",colVisibility);
-	console.log("update check:", JSON.parse(localStorage.getItem("colVisibility")));
+	localStorage.setItem("colVisibility2", JSON.stringify(colVisibility2));
+	//console.log("colVisibility2:",colVisibility2);
+	console.log("update check:", JSON.parse(localStorage.getItem("colVisibility2")));
 	//updateColumnVisibility();
 	//constructTable("table");
 	//can add validation later
@@ -727,7 +727,7 @@ function updateSettings(settings){
 
 //update column visibility
 function showHideColumn(colNumber, visible){
-	colVisibility[colNumber] = visible;
+	colVisibility2[colNumber] = visible;
 }
 
 function updateColumnVisibility(){
@@ -735,7 +735,7 @@ function updateColumnVisibility(){
 	for (var i = 0; i < tableRows.length; i++) {
 		for (var j = 0; j < tableRows[i].cells.length; j++) {
 			tableRows[i].cells[j].style.display = "";
-			if (!colVisibility[j]){	
+			if (!colVisibility2[j]){	
 				tbl.rows[i].cells[j].style.display = "none";
 			}
 		}
@@ -827,7 +827,7 @@ function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	table = document.getElementById("table");
 	//reset all direction arrows
-	for (var a = 0; a < colVisibility.length; ++a){
+	for (var a = 0; a < colVisibility2.length; ++a){
 		table.children[0].children[0].children[a].className = "ascdesc";
 	}
 	//console.log(table.children[0].children[0]);
