@@ -511,7 +511,7 @@ function filterLoc(selector) {
 	wardarea = document.getElementById("locfilter2DropDown").value;
 	table = document.getElementById("table");
 	//need to dynamically find hospital and wardarea col using search
-	headers = table.tHead.children[0].children;
+	headers = document.getElementById("table").tHead.children[0].children;
 	for (i = 0; i < headers.length; i++) {
 		if (/HOSPITAL_SITE/.test(headers[i].innerHTML)){
 			hospitalCol = i;
@@ -799,8 +799,19 @@ function searchTable(selector) {
 	var input, filter, table, tr, td, i, txtValue, col, hospitalCol, wardareaCol, hospital, wardarea, hospitalCheck1, wardAreaCheck1, hospitalCheck2, wardAreaCheck2;
 	hospital = document.getElementById("locfilter1DropDown").value;
 	wardarea = document.getElementById("locfilter2DropDown").value;
-	hospitalCol = 4;
-	wardareaCol = 5;
+	//need to dynamically find hospital and wardarea col using search
+	headers = document.getElementById("table").tHead.children[0].children;
+	for (i = 0; i < headers.length; i++) {
+		if (/HOSPITAL_SITE/.test(headers[i].innerHTML)){
+			hospitalCol = i;
+			//console.log("hospitalCol: ", hospitalCol);
+		}else if (/WARD\/AREA/.test(headers[i].innerHTML)){
+			wardareaCol = i;
+			//console.log("wardareaCol: ", wardareaCol);
+		}else{
+		}
+		
+	}
 	input = document.getElementById("searchBar");
 	filter = input.value.toUpperCase();
 	col = document.getElementById("filterDropDown").selectedIndex;

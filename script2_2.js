@@ -478,7 +478,7 @@ function constructDropDown(selector) {
 			createOptions(headings, options);
 			break;
 		case "hospitals":
-			headings.push("All");
+			headings.push("All Hospitals");
 			for (let i = 0; i < list.REC.PAT.length; i++) {
 				if(!hospitals.has(list.REC.PAT[i]["HOSPITAL_SITE"])){
 						hospitals.set(list.REC.PAT[i]["HOSPITAL_SITE"], true);
@@ -492,7 +492,7 @@ function constructDropDown(selector) {
 			createOptions(headings, options);
 			break;
 		case "ward/areas":
-			headings.push("All");
+			headings.push("All Areas/Wards");
 			for (let i = 0; i < list.REC.PAT.length; i++) {	
 				if(!areawards.has(list.REC.PAT[i]["WARD/AREA"])){
 						areawards.set(list.REC.PAT[i]["WARD/AREA"], true);
@@ -513,26 +513,36 @@ function constructDropDown(selector) {
 //filter table after change in location drop down selection
 function filterLoc(selector) {
 	//console.log("filtering table by location");
-	var hospital, wardarea, table, tr, td, i, txtValue, txtValue2, hospitalCol, wardareaCol;
+	var hospital, wardarea, table, tr, td, i, txtValue, txtValue2, hospitalCol, wardareaCol, headers;
 	hospital = document.getElementById("locfilter1DropDown").value;
 	wardarea = document.getElementById("locfilter2DropDown").value;
 	table = document.getElementById("table");
 	//need to dynamically find hospital and wardarea col using search
-	hospitalCol = 9;
-	wardareaCol = 10;
+	headers = table.tHead.children[0].children;
+	for (i = 0; i < headers.length; i++) {
+		if (/HOSPITAL_SITE/.test(headers[i].innerHTML)){
+			hospitalCol = i;
+			//console.log("hospitalCol: ", hospitalCol);
+		}else if (/WARD\/AREA/.test(headers[i].innerHTML)){
+			wardareaCol = i;
+			//console.log("wardareaCol: ", wardareaCol);
+		}else{
+		}
+		
+	}
 	tr = table.getElementsByTagName("tr");
 	//iterate throug table rows
 	for (i = 1; i < tr.length; i++) {
 		td = tr[i].getElementsByTagName("td")[hospitalCol];
 		td2 = tr[i].getElementsByTagName("td")[wardareaCol];
 		//check if a hospital location has been selected
-		if (!/All/.test(hospital)){
+		if (!/All Hospitals/.test(hospital)){
 			if (td) {
 				txtValue = td.textContent || td.innerText;
 				if (txtValue.indexOf(hospital) > -1) {
 					tr[i].style.display = "";
 					//check if a wardarea location has been selected
-					if(!/All/.test(wardarea)){
+					if(!/All Areas\/Wards/.test(wardarea)){
 						if (td2) {
 							txtValue2 = td2.textContent || td2.innerText;
 							if (txtValue2.indexOf(wardarea) > -1) {
@@ -547,7 +557,7 @@ function filterLoc(selector) {
 				}
 			}
 		//check if a hospital location has not been selected by wardarea is
-		}else if(!/All/.test(wardarea)){
+		}else if(!/All Areas\/Wards/.test(wardarea)){
 			if (td2) {
 				txtValue2 = td2.textContent || td2.innerText;
 				if (txtValue2.indexOf(wardarea) > -1) {
@@ -796,8 +806,19 @@ function searchTable(selector) {
 	var input, filter, table, tr, td, i, txtValue, col, hospitalCol, wardareaCol, hospital, wardarea, hospitalCheck1, wardAreaCheck1, hospitalCheck2, wardAreaCheck2;
 	hospital = document.getElementById("locfilter1DropDown").value;
 	wardarea = document.getElementById("locfilter2DropDown").value;
-	hospitalCol = 9;
-	wardareaCol = 10;
+	//need to dynamically find hospital and wardarea col using search
+	headers = document.getElementById("table").tHead.children[0].children;
+	for (i = 0; i < headers.length; i++) {
+		if (/HOSPITAL_SITE/.test(headers[i].innerHTML)){
+			hospitalCol = i;
+			//console.log("hospitalCol: ", hospitalCol);
+		}else if (/WARD\/AREA/.test(headers[i].innerHTML)){
+			wardareaCol = i;
+			//console.log("wardareaCol: ", wardareaCol);
+		}else{
+		}
+		
+	}
 	input = document.getElementById("searchBar");
 	filter = input.value.toUpperCase();
 	col = document.getElementById("filterDropDown").selectedIndex;
@@ -813,8 +834,8 @@ function searchTable(selector) {
 		if (td) {
 			txtValue = td.textContent || td.innerText;
 			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				if(hospital.indexOf(hospitalCheck2) > -1 || /All/.test(hospital)){
-					if(wardarea.indexOf(wardAreaCheck2) > -1 || /All/.test(wardarea)){
+				if(hospital.indexOf(hospitalCheck2) > -1 || /All Hospitals/.test(hospital)){
+					if(wardarea.indexOf(wardAreaCheck2) > -1 || /All Areas\/Wards/.test(wardarea)){
 						tr[i].style.display = "";
 					}
 				}
