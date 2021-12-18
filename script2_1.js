@@ -392,28 +392,21 @@ var list = {
 //import list from 'http://127.0.0.1:5500/script.js';
 
 //manage column visibility
-var colVisibility2 = Object.keys(list.REC.PAT[0]);
-if(localStorage.colVisibility2 === undefined) {
-	for (i = 0; i < colVisibility2.length; i++){
-		if (/DETAILS/.test(colVisibility2[i]) || 
-		/UR/.test(colVisibility2[i]) || 
-		/NAME/.test(colVisibility2[i]) || 
-		/D.O.B/.test(colVisibility2[i]) || 
-		/SEX/.test(colVisibility2[i]) || 
-		/BED_NO/.test(colVisibility2[i]) || 
-		/ADMITTING SPECIALTY/.test(colVisibility2[i]) ||	 
-		/ADMITTING CONSULTANT/.test(colVisibility2[i])){
-			colVisibility2[i] = true;
+var colVisibility = Object.keys(list.REC.PAT[0]);
+if(localStorage.colVisibility === undefined) {
+	for (i = 0; i < colVisibility.length; i++){
+		if (colVisibility[i].endsWith("FLAG") || /DETAILS/.test(colVisibility[i])){
+			colVisibility[i] = false;
 		}else{
-			colVisibility2[i] = false;
+			colVisibility[i] = true;
 		}
 	}
-	localStorage.setItem("colVisibility2", JSON.stringify(colVisibility2));
+	localStorage.setItem("colVisibility", JSON.stringify(colVisibility));
 }else{
-	colVisibility2 = JSON.parse(localStorage.getItem("colVisibility2"));
+	colVisibility = JSON.parse(localStorage.getItem("colVisibility"));
 }
-console.log("initial:", JSON.parse(localStorage.getItem("colVisibility2")));
-//console.log("colVisibility2:" + colVisibility2);
+console.log("initial:", JSON.parse(localStorage.getItem("colVisibility")));
+//console.log("colVisibility:" + colVisibility);
 
 
 
@@ -513,26 +506,36 @@ function constructDropDown(selector) {
 //filter table after change in location drop down selection
 function filterLoc(selector) {
 	//console.log("filtering table by location");
-	var hospital, wardarea, table, tr, td, i, txtValue, txtValue2, hospitalCol, wardareaCol;
+	var hospital, wardarea, table, tr, td, i, txtValue, txtValue2, hospitalCol, wardareaCol, headers;
 	hospital = document.getElementById("locfilter1DropDown").value;
 	wardarea = document.getElementById("locfilter2DropDown").value;
 	table = document.getElementById("table");
 	//need to dynamically find hospital and wardarea col using search
-	hospitalCol = 9;
-	wardareaCol = 10;
+	headers = table.tHead.children[0].children;
+	for (i = 0; i < headers.length; i++) {
+		if (/HOSPITAL_SITE/.test(headers[i].innerHTML)){
+			hospitalCol = i;
+			//console.log("hospitalCol: ", hospitalCol);
+		}else if (/WARD\/AREA/.test(headers[i].innerHTML)){
+			wardareaCol = i;
+			//console.log("wardareaCol: ", wardareaCol);
+		}else{
+		}
+		
+	}
 	tr = table.getElementsByTagName("tr");
 	//iterate throug table rows
 	for (i = 1; i < tr.length; i++) {
 		td = tr[i].getElementsByTagName("td")[hospitalCol];
 		td2 = tr[i].getElementsByTagName("td")[wardareaCol];
 		//check if a hospital location has been selected
-		if (!/All/.test(hospital)){
+		if (!/All Hospitals/.test(hospital)){
 			if (td) {
 				txtValue = td.textContent || td.innerText;
 				if (txtValue.indexOf(hospital) > -1) {
 					tr[i].style.display = "";
 					//check if a wardarea location has been selected
-					if(!/All/.test(wardarea)){
+					if(!/All Areas\/Wards/.test(wardarea)){
 						if (td2) {
 							txtValue2 = td2.textContent || td2.innerText;
 							if (txtValue2.indexOf(wardarea) > -1) {
@@ -547,7 +550,7 @@ function filterLoc(selector) {
 				}
 			}
 		//check if a hospital location has not been selected by wardarea is
-		}else if(!/All/.test(wardarea)){
+		}else if(!/All Areas\/Wards/.test(wardarea)){
 			if (td2) {
 				txtValue2 = td2.textContent || td2.innerText;
 				if (txtValue2.indexOf(wardarea) > -1) {
@@ -658,9 +661,9 @@ function constructTable(selector) {
 	var tableRows = document.getElementById("table").getElementsByTagName("tr");
 	for (var i = 0; i < tableRows.length; i++) {
 		for (var j = 0; j < tableRows[i].cells.length; j++) {
-			//console.log("checking", localStorage.getItem("colVisibility2"), localStorage.getItem("colVisibility2"), tbl.rows[i].cells[j]);
-			if (!JSON.parse(localStorage.getItem("colVisibility2"))[j]){
-				//console.log(j, JSON.parse(localStorage.getItem("colVisibility2"))[j]);
+			//console.log("checking", localStorage.getItem("colVisibility"), localStorage.getItem("colVisibility"), tbl.rows[i].cells[j]);
+			if (!JSON.parse(localStorage.getItem("colVisibility"))[j]){
+				//console.log(j, JSON.parse(localStorage.getItem("colVisibility"))[j]);
 				tbl.rows[i].cells[j].style.display = "none";
 			}
 		}
@@ -687,7 +690,7 @@ function loadSettings(){
 		checkBox.name = headings[i];
 		checkBox.value = headings[i];
 		checkBox.id = i + ". " + headings[i];
-		if(JSON.parse(localStorage.getItem("colVisibility2"))[i]){	
+		if(JSON.parse(localStorage.getItem("colVisibility"))[i]){	
 			checkBox.defaultChecked = true;
 		}
 		label.htmlFor = checkBox.id;
@@ -715,11 +718,11 @@ function updateSettings(settings){
 	//console.log(event);
 	//alert(event.target);
 	for (i = 0; i < Object.keys(list.REC.PAT[0]).length; i++){
-		colVisibility2[i] = event.target[i].checked;
+		colVisibility[i] = event.target[i].checked;
 	}
-	localStorage.setItem("colVisibility2", JSON.stringify(colVisibility2));
-	//console.log("colVisibility2:",colVisibility2);
-	console.log("update check:", JSON.parse(localStorage.getItem("colVisibility2")));
+	localStorage.setItem("colVisibility", JSON.stringify(colVisibility));
+	//console.log("colVisibility:",colVisibility);
+	console.log("update check:", JSON.parse(localStorage.getItem("colVisibility")));
 	//updateColumnVisibility();
 	//constructTable("table");
 	//can add validation later
@@ -728,7 +731,7 @@ function updateSettings(settings){
 
 //update column visibility
 function showHideColumn(colNumber, visible){
-	colVisibility2[colNumber] = visible;
+	colVisibility[colNumber] = visible;
 }
 
 function updateColumnVisibility(){
@@ -736,7 +739,7 @@ function updateColumnVisibility(){
 	for (var i = 0; i < tableRows.length; i++) {
 		for (var j = 0; j < tableRows[i].cells.length; j++) {
 			tableRows[i].cells[j].style.display = "";
-			if (!colVisibility2[j]){	
+			if (!colVisibility[j]){	
 				tbl.rows[i].cells[j].style.display = "none";
 			}
 		}
@@ -796,8 +799,8 @@ function searchTable(selector) {
 	var input, filter, table, tr, td, i, txtValue, col, hospitalCol, wardareaCol, hospital, wardarea, hospitalCheck1, wardAreaCheck1, hospitalCheck2, wardAreaCheck2;
 	hospital = document.getElementById("locfilter1DropDown").value;
 	wardarea = document.getElementById("locfilter2DropDown").value;
-	hospitalCol = 9;
-	wardareaCol = 10;
+	hospitalCol = 4;
+	wardareaCol = 5;
 	input = document.getElementById("searchBar");
 	filter = input.value.toUpperCase();
 	col = document.getElementById("filterDropDown").selectedIndex;
@@ -813,8 +816,8 @@ function searchTable(selector) {
 		if (td) {
 			txtValue = td.textContent || td.innerText;
 			if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				if(hospital.indexOf(hospitalCheck2) > -1 || /All/.test(hospital)){
-					if(wardarea.indexOf(wardAreaCheck2) > -1 || /All/.test(wardarea)){
+				if(hospital.indexOf(hospitalCheck2) > -1 || /All Hospitals/.test(hospital)){
+					if(wardarea.indexOf(wardAreaCheck2) > -1 || /All Areas\/Wards/.test(wardarea)){
 						tr[i].style.display = "";
 					}
 				}
@@ -828,7 +831,7 @@ function sortTable(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	table = document.getElementById("table");
 	//reset all direction arrows
-	for (var a = 0; a < colVisibility2.length; ++a){
+	for (var a = 0; a < colVisibility.length; ++a){
 		table.children[0].children[0].children[a].className = "ascdesc";
 	}
 	//console.log(table.children[0].children[0]);
